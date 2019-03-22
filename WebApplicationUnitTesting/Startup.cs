@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using WebApplicationUnitTesting.Models;
 
 namespace WebApplicationUnitTesting
 {
@@ -30,7 +31,7 @@ namespace WebApplicationUnitTesting
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
 
-
+            services.AddTransient(typeof (IProductStore),typeof(ProductService));
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }
 
