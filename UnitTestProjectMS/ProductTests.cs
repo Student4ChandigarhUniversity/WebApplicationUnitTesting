@@ -23,6 +23,8 @@ namespace UnitTestProjectMS
             ProductController controller = new ProductController(mockedclassobj);
             ViewResult result = (ViewResult)controller.Index();
             Assert.IsTrue((bool)result.Model);
+            productstoremock.Verify(c => c.FindProduct(101));
+
         }
 
         
